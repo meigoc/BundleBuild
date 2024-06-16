@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408" prefWidth="704" styleClass="">
+  <children>
+    <LabelEx alignment="CENTER_LEFT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label" layoutX="8" layoutY="48" prefHeight="36" prefWidth="416" styleClass="label " text="Добро пожаловать в BundleBuild" textAlignment="LEFT" underline="false" wrapText="false">
+      <font>
+        <Font name="System Bold" size="25"/>
+      </font>
+    </LabelEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-label" visible="1"/>
+    <LabelEx alignment="TOP_LEFT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="labelAlt" layoutX="16" layoutY="88" prefHeight="200" prefWidth="416" styleClass="label " text="версия сборки: v0.9.1_beta&#10;Разработка только начата, так что функционала здесь может не быть." textAlignment="LEFT" underline="false" wrapText="true">
+      <font>
+        <Font name="Calibri" size="15"/>
+      </font>
+    </LabelEx>
+    <Data cursor="DEFAULT" enabled="1" id="data-labelAlt" visible="1"/>
+    <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="button" layoutX="472" layoutY="328" prefHeight="32" prefWidth="144" styleClass="button " text="Кнопка" textAlignment="CENTER" underline="false" wrapText="false">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" id="data-button" visible="1"/>
+    <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="buttonAlt" layoutX="288" layoutY="320" prefHeight="32" prefWidth="144" styleClass="button " text="Кнопка" textAlignment="CENTER" underline="false" wrapText="false">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" id="data-buttonAlt" visible="1"/>
+    <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="button3" layoutX="576" layoutY="64" prefHeight="32" prefWidth="144" styleClass="button " text="Кнопка" textAlignment="CENTER" underline="false" wrapText="false">
+      <font>
+        <Font name="System Regular" size="12"/>
+      </font>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" id="data-button3" visible="1"/>
+  </children>
+</AnchorPane>
