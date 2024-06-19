@@ -27,7 +27,15 @@ class design extends AbstractModule
         $newi->image = new UXImage('res://.data/img/dn17/new16.png');           
         $new = new UXMenuItem('Новый проект', $newi);
         $new->on('action', function ($e) use ($new){
-           UXDialog::show('Выбран пункт '.$new->text);
+           
+           // Создание проекта
+           
+           app()->showForm("new");
+           waitAsync(500, function () use ($e, $event) {
+               foreach(app()->form("new")->children as $obj) { 
+                    $obj->enabled = true;
+               }
+           });
         });                         
         $Menu->items->add($new); 
 

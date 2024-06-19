@@ -13,8 +13,72 @@ class AppModule extends AbstractModule
      */
     function doAction(ScriptEvent $e = null)
     {    
+        // все выводы в лог (консоль) на английском языке, т.к. на данный момент я не знаю как сделать поддержку русского текста в командной строке windows
+        // глобальные переменные
         global $ver;
-        $ver = "v0.9.1_beta";
+        global $JAVA_HOME;
+        global $TEMP;
+        global $USERPROFILE;
+        
+        $ver = "v0.9.2_beta"; // версия программы
+        $JAVA_HOME = $_ENV['JAVA_HOME']; // Путь к джаве
+        $TEMP = $_ENV['TEMP']; // TEMP-папка
+        $USERPROFILE = $_ENV['USERPROFILE']; // Путь к пользовательской папке типа: C:/Users/User/ (запись всегда разрешена)
+        
+        echo "BundleBuild ".$ver." launched!\n";
+        echo "------------------\n";
+        echo "APP UUID: ".app()->getConfig()->get("app.uuid")."\n";
+        echo "StartTime: ".app()->getStartTime()."\n";
+        echo "Java: ".$JAVA_HOME."\n";
+        echo "PHP: ".phpversion()."\n";
+        echo "JPHP: 1.0.3\n";
+        echo "------------------\n";
+        echo "LOG HERE:\n";
+        
+        // папки
+        $nfolder_projects = $USERPROFILE."\\BundleBuildProjects"; // папка проектов
+        $nfolder_library = $USERPROFILE."\\BundleBuildLibrary"; // папка библиотек
+        // из \ в / методом str:replace
+        //  Было: C:\Users\User\papka
+        // Стало: C:/Users/User/papka
+        $folder_projects = str::replace($nfolder_projects, "\\", "/");
+        $folder_library = str::replace($nfolder_library, "\\", "/");
+        echo "[INFO] Projects: ".$folder_projects." | Library: ".$folder_library." \n";
+        // Создание папки проектов BundleBuild
+        if (fs::isDir($folder_projects)) {
+            echo "[INFO] Searching... (1/2)\n";
+        } else {
+            echo "[ERROR] Project folder not found, creating a new...\n";
+            $dir = new File($folder_projects);
+
+            if ($dir->mkdirs()) {
+                echo "[INFO] Successfully created folder (1/2)\n";
+            } else {
+                echo "[ERROR] Error create folder | CODE: 0x0008kabc\n";
+                alert("Ошибка создания папки ".$folder_projects." | CODE: 0x0008kabc");
+                app()->shutdown();
+            }
+        }
+        // Создание папки библиотеки BundleBuild
+        if (fs::isDir($folder_library)) {
+            echo "[INFO] Searching... (2/2)\n";
+        } else {
+            echo "[ERROR] Library folder not found, creating a new...\n";
+            $dir = new File($folder_library);
+
+            if ($dir->mkdirs()) {
+                echo "[INFO] Successfully created folder (2/2)\n";
+            } else {
+                echo "[ERROR] Error create folder | CODE: 0x0008kabc\n";
+                alert("Ошибка создания папки ".$folder_library." | CODE: 0x0008kabc");
+                app()->shutdown();
+            }
+        }
+        // Создание папки для временных файлов (temp)
+        //
+        // будет добавлено в следующей версии
+        //
+        
         
         // Создание формы
         $Form = new UXForm();
@@ -39,8 +103,8 @@ class AppModule extends AbstractModule
         $text2 = new UXLabel;
         $text2->size = [416, 200];
         $text2->position = [16, 88];
-        $text2->text = "версия сборки: v0.9.1_beta
-Разработка только начата, так что функционала здесь может не быть.";
+        $text2->text = "версия сборки: v0.9.2_beta
+Добавлено создание проектов";
         $text2->alignment = "TOP_LEFT";
         $text2->wrapText = true;
         $text2->font = $text2->font->withSize(15)->withRegular()->withName('Calibri');

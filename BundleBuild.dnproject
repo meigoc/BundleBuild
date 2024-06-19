@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="winda" authorOS="Windows 10" createdAt="1718544975550" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="BundleBuild" packageName="meigo" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1718550035943">
+<project author="winda" authorOS="Windows 10" createdAt="1718544975550" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="BundleBuild" packageName="meigo" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1718820013282">
   <tree>
     <expanded>
-      <path src=""/>
+    <path src=""/>
       <path src="/src"/>
       <path src="/src/.theme"/>
       <path src="/src/meigo"/>
@@ -11,13 +11,15 @@
     </expanded>
   </tree>
   <openedFiles>
-    <file src="BundleBuild.dnproject"/>
-    <file selected="1" src="src/meigo/forms/MainForm.php"/>
+  <file selected="1" src="BundleBuild.dnproject"/>
+    <file src="src/meigo/forms/MainForm.php"/>
     <file src="src/meigo/modules/AppModule.php"/>
+    <file src="src/meigo/modules/design.php"/>
+    <file src="src/meigo/forms/new.php"/>
   </openedFiles>
   <files/>
   <behaviours>
-    <behaviour class="ide\project\behaviours\BundleProjectBehaviour"/>
+  <behaviour class="ide\project\behaviours\BundleProjectBehaviour"/>
     <behaviour class="ide\project\behaviours\PhpProjectBehaviour"/>
     <behaviour class="ide\project\behaviours\JavaPlatformBehaviour"/>
     <behaviour class="ide\project\behaviours\GuiFrameworkProjectBehaviour"/>
