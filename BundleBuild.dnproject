@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="winda" authorOS="Windows 10" createdAt="1718544975550" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="BundleBuild" packageName="meigo" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1718820013282">
+<project author="winda" authorOS="Windows 10" createdAt="1718544975550" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="BundleBuild" packageName="meigo" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1718831887937">
   <tree>
     <expanded>
     <path src=""/>
@@ -11,9 +11,9 @@
     </expanded>
   </tree>
   <openedFiles>
-  <file selected="1" src="BundleBuild.dnproject"/>
+  <file src="BundleBuild.dnproject"/>
     <file src="src/meigo/forms/MainForm.php"/>
-    <file src="src/meigo/modules/AppModule.php"/>
+    <file selected="1" src="src/meigo/modules/AppModule.php"/>
     <file src="src/meigo/modules/design.php"/>
     <file src="src/meigo/forms/new.php"/>
   </openedFiles>

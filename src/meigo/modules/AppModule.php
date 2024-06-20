@@ -14,13 +14,17 @@ class AppModule extends AbstractModule
     function doAction(ScriptEvent $e = null)
     {    
         // все выводы в лог (консоль) на английском языке, т.к. на данный момент я не знаю как сделать поддержку русского текста в командной строке windows
+        // форма
+        global $Form;
         // глобальные переменные
         global $ver;
         global $JAVA_HOME;
         global $TEMP;
         global $USERPROFILE;
+        // папки проектов
+        global $folder_projects;
         
-        $ver = "v0.9.2_beta"; // версия программы
+        $ver = "v0.9.3_beta"; // версия программы
         $JAVA_HOME = $_ENV['JAVA_HOME']; // Путь к джаве
         $TEMP = $_ENV['TEMP']; // TEMP-папка
         $USERPROFILE = $_ENV['USERPROFILE']; // Путь к пользовательской папке типа: C:/Users/User/ (запись всегда разрешена)
@@ -43,6 +47,7 @@ class AppModule extends AbstractModule
         // Стало: C:/Users/User/papka
         $folder_projects = str::replace($nfolder_projects, "\\", "/");
         $folder_library = str::replace($nfolder_library, "\\", "/");
+        app()->module("design")->fileChooser3->initialDirectory = $folder_projects;
         echo "[INFO] Projects: ".$folder_projects." | Library: ".$folder_library." \n";
         // Создание папки проектов BundleBuild
         if (fs::isDir($folder_projects)) {
@@ -91,20 +96,27 @@ class AppModule extends AbstractModule
         
         // Создание меню
         app()->module("design")->AddMenuBar($Form);
+        // Создание панели
+        app()->module("design")->AddPanel($Form);
+        // Создание дерева
+        app()->module("design")->AddTree($Form);
         
         // Создание двух текстов
         $text1 = new UXLabel;
         $text1->size = [416, 36];
-        $text1->position = [8, 48];
+        $text1->position = [168, 72];
         $text1->text = "Добро пожаловать в BundleBuild";
         $text1->font = $text1->font->withBold()->withSize(25);
         $Form->add($text1);
         
         $text2 = new UXLabel;
         $text2->size = [416, 200];
-        $text2->position = [16, 88];
-        $text2->text = "версия сборки: v0.9.2_beta
-Добавлено создание проектов";
+        $text2->position = [168, 105];
+        $text2->text = 'версия сборки: v0.9.3_beta;
+- Глобальное обновление дизайна главной формы,        
+- Добавлено открытие проектов,
+- В главной форме, в меню "Проект" теперь не доступны кнопки связанные с сохранением когда проект не открыт,
+- Добавлено меню "Справка" и "Язык".';
         $text2->alignment = "TOP_LEFT";
         $text2->wrapText = true;
         $text2->font = $text2->font->withSize(15)->withRegular()->withName('Calibri');

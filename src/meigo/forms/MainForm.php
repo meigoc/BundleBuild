@@ -115,23 +115,73 @@ class MainForm extends AbstractForm
      */
     function doButtonAction(UXEvent $e = null)
     {    
-        alert($this->labelAlt->alignment);
+        $tree = new UXTreeView;
+        $tree->position = [0, 64];
+        $tree->size = [160, 344];
+        $tree->anchors = ['top' => 64, 'bottom' => 0];
+        $this->add($tree);
+        
+        $panel = new UXPanel;
+        $panel->backgroundColor = "#f2f2f2";
+        $panel->position = [0, 24];
+        $panel->size = [704, 40];
+        $panel->anchors = ['left' => 0, 'right' => 0];
+        
+        $meigoid_button = new UXButton;
+        $meigoid_button->size = [144, 34];
+        $meigoid_button->position = [3, 3];
+        $meigoid_button->text = "тут скоро что-то будет";
+        
+        $separator1 = new UXSeparator;
+        $separator1->orientation = "VERTICAL";
+        $separator1->size = [16, 34];
+        $separator1->position = [144, 3];
+        
+        $newproject_button = new UXButton;
+        //$newproject_button->position = [3, 27];
+        $newproject_button->size = [35, 34];
+        $newproject_button->position = [153, 3]; // + 147
+        $newproject_button->graphic = new UXImageView(new UXImage('res://.data/img/dn17/new16.png'));
+        $newproject_button->text = null;
+        
+        $openproject_button = new UXButton;
+        $openproject_button->size = [35, 34];
+        $openproject_button->position = [191, 3]; // +38
+        $openproject_button->graphic = new UXImageView(new UXImage('res://.data/img/dn17/open16.png'));
+        $openproject_button->text = null;
+        
+        $saveproject_button = new UXButton;
+        $saveproject_button->size = [35, 34];
+        $saveproject_button->position = [229, 3]; // +38
+        $saveproject_button->graphic = new UXImageView(new UXImage('res://.data/img/dn17/save16.png'));
+        $saveproject_button->text = null;
+        
+        $savezipproject_button = new UXButton;
+        $savezipproject_button->size = [35, 34];
+        $savezipproject_button->position = [267, 3]; // +38
+        $savezipproject_button->graphic = new UXImageView(new UXImage('res://.data/img/dn17/saveAs16.png'));
+        $savezipproject_button->text = null;
+        
+        $s_button = new UXButton;
+        $s_button->size = [340, 34];
+        $s_button->position = [305, 3]; // +38
+        $s_button->graphic = new UXImageView(new UXImage('res://.data/img/dn17/warning16.png'));
+        $s_button->text = "это бета-версия, какие-то функции могут не работать.";
+        
+        $panel->add($meigoid_button);
+        $panel->add($separator1);
+        $panel->add($newproject_button);
+        $panel->add($openproject_button);
+        $panel->add($saveproject_button);
+        $panel->add($savezipproject_button);
+        $panel->add($s_button);
+        $this->add($panel);
+        //$this->panel->add($separator2);
     }
 
-    /**
-     * @event buttonAlt.action 
-     */
-    function doButtonAltAction(UXEvent $e = null)
-    {    
-        alert(app()->form("MainForm")->modules);
-    }
 
-    /**
-     * @event button3.action 
-     */
-    function doButton3Action(UXEvent $e = null)
-    {    
-        $this->button->observer();
-    }
+
+
+
 
 }
